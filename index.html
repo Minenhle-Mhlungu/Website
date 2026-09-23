@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minenhle Mhlungu — Marketing Portfolio</title>
+<meta name="description" content="Marketing student in Durban helping businesses grow their digital presence with strategy and creative campaigns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F5F0; --panel: #FFFFFF; --ink: #16261E; --soft: #55665B; --line: #D9E0D6;
+    --green: #2F6B45; --ochre: #8F5A22; --rose: #B5566A; --blob: #E7C9A0;
+    --radius: 6px;
+    font-family: 'Work Sans', system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101A15; --panel: #17251D; --ink: #EAF0E8; --soft: #A3B3A8; --line: #2A3B31;
+      --green: #7CBF93; --ochre: #E0A05A; --rose: #D98A9B; --blob: #5A4325;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101A15; --panel: #17251D; --ink: #EAF0E8; --soft: #A3B3A8; --line: #2A3B31;
+    --green: #7CBF93; --ochre: #E0A05A; --rose: #D98A9B; --blob: #5A4325;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+  * { box-sizing: inherit; }
+  body { margin: 0; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; display: flex; flex-direction: column; min-height: 100%; height: auto; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.12; margin: 0 0 .4em; letter-spacing: -0.01em; }
+  p { line-height: 1.7; color: var(--soft); max-width: 62ch; margin: 0 0 1em; }
+  .lede { font-size: 1.15rem; color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+  /* Header */
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-inner { max-width: 1040px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600; background: none; border: 0; color: var(--ink); cursor: pointer; padding: 4px 0; }
+  nav { display: flex; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav button { font: inherit; font-size: .93rem; background: none; border: 0; color: var(--soft); padding: 8px 12px; border-radius: 999px; cursor: pointer; white-space: nowrap; transition: color .2s, background .2s; }
+  nav button:hover { color: var(--ink); background: var(--panel); }
+  nav button[aria-current="page"] { color: var(--bg); background: var(--ink); }
+  #theme { padding: 8px 10px; margin-left: 4px; border: 1px solid var(--line); }
+
+  /* Layout + page transitions */
+  main { flex: 1; width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section.page { display: none; padding: 64px 0 96px; }
+  section.page.active { display: block; animation: pageIn .55s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes pageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .page-title { font-size: clamp(2rem, 4.5vw, 2.8rem); }
+
+  /* Home */
+  .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 760px) { .hero { grid-template-columns: 1fr; gap: 40px; } .portrait-wrap { max-width: 340px; } }
+  .hero .hi { color: var(--green); font-weight: 500; margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); margin-bottom: .3em; }
+  .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn { font: inherit; font-size: .95rem; font-weight: 500; padding: 13px 24px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); cursor: pointer; transition: transform .2s, background .2s, color .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+
+  .portrait-wrap { position: relative; }
+  .portrait-wrap::before { content: ""; position: absolute; inset: 20px -20px -20px 20px; background: var(--blob); border-radius: 180px 180px var(--radius) var(--radius); }
+  .portrait { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 180px 180px var(--radius) var(--radius); background: var(--panel); border: 1px solid var(--line); display: grid; place-items: center; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .portrait .fallback { display: none; font-family: 'Fraunces', serif; font-size: 4rem; color: var(--soft); }
+
+  .divider { height: 1px; background: var(--line); border: 0; margin: 80px 0 56px; }
+  .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px; margin-top: 28px; }
+  .values div { border-left: 3px solid var(--ochre); padding-left: 18px; }
+  .values div:nth-child(2) { border-color: var(--rose); }
+  .values div:nth-child(3) { border-color: var(--green); }
+  .values h3 { font-size: 1.1rem; }
+  .values p { font-size: .94rem; margin: 0; }
+
+  /* Services */
+  .service-list { margin-top: 40px; }
+  .service-row { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding: 32px 0; border-top: 1px solid var(--line); transition: padding-left .25s; }
+  .service-row:last-child { border-bottom: 1px solid var(--line); }
+  .service-row:hover { padding-left: 12px; }
+  @media (max-width: 680px) { .service-row { grid-template-columns: 1fr; gap: 8px; } .service-row:hover { padding-left: 0; } }
+  .service-row h3 { font-size: 1.3rem; margin-bottom: 6px; }
+  .service-row .tag { color: var(--ochre); font-size: .88rem; }
+  .service-row p { margin: 0; align-self: center; }
+
+  /* About */
+  .about h2 { font-size: 1.35rem; margin-top: 56px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .chip { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 9px 16px; font-size: .92rem; }
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 16px; }
+  .project-card { border: 1px solid var(--line); border-top: 3px solid var(--ochre); border-radius: var(--radius); padding: 24px; background: var(--panel); }
+  .project-card:nth-child(2) { border-top-color: var(--rose); }
+  .project-card:nth-child(3) { border-top-color: var(--green); }
+  .project-card h3 { font-size: 1.1rem; }
+  .project-card p { font-size: .93rem; margin: 0; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; margin-top: 36px; }
+  @media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-item { padding: 22px 0; border-top: 1px solid var(--line); min-width: 0; }
+  .contact-item .label { font-size: .85rem; color: var(--soft); margin-bottom: 4px; }
+  .contact-item .value { font-size: 1.1rem; overflow-wrap: anywhere; }
+  .contact-item a { text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color .2s, color .2s; }
+  .contact-item a:hover { border-color: var(--green); color: var(--green); }
+
+  footer { text-align: center; padding: 32px 24px 48px; color: var(--soft); font-size: .85rem; border-top: 1px solid var(--line); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <button type="button" class="brand" data-page="home">EVAlast</button>
+    <nav aria-label="Primary">
+      <button type="button" data-page="home" aria-current="page">Home</button>
+      <button type="button" data-page="services">Services</button>
+      <button type="button" data-page="about">About</button>
+      <button type="button" data-page="contact">Contact</button>
+      <button type="button" id="theme" aria-label="Toggle light and dark theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page active" id="home">
+    <div class="hero">
+      <div>
+        <div class="hi">Hello, I'm</div>
+        <h1>Minenhle Mhlungu</h1>
+        <p class="lede">I'm a marketing student who helps businesses improve their digital presence and build strategic, creative advertising campaigns.</p>
+        <p>Ambitious and growth-driven, curious about everything, and committed to the family and friends who surround me.</p>
+        <div class="cta-row">
+          <button type="button" class="btn" data-page="services">See what I offer</button>
+          <button type="button" class="btn ghost" data-page="contact">Get in touch</button>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait">
+          <img src="Me.jpeg" alt="Portrait of Minenhle Mhlungu" onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
+          <div class="fallback" aria-hidden="true">MM</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>What I value</h2>
+    <div class="values">
+      <div>
+        <h3>Self-improvement</h3>
+        <p>I invest in growing my career and myself, every day.</p>
+      </div>
+      <div>
+        <h3>Kindness</h3>
+        <p>Kindness is second nature. I treat people the way I want to be treated.</p>
+      </div>
+      <div>
+        <h3>Respect and professionalism</h3>
+        <p>I take my work seriously, so I value people who are organised and know what they want to achieve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="services">
+    <h1 class="page-title">What I offer</h1>
+    <p class="lede">I run strategic marketing initiatives and manage your business's social media presence end to end, on a schedule we agree on.</p>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div>
+          <h3>Marketing planning and strategy</h3>
+          <span class="tag">Best for a business planning a campaign</span>
+        </div>
+        <p>Business analysis, budget, target audience and campaign duration.</p>
+      </div>
+      <div class="service-row">
+        <div>
+          <h3>Advertising campaigns</h3>
+          <span class="tag">Best for a business with a strong marketing plan</span>
+        </div>
+        <p>Social media campaigns on Instagram, WhatsApp, TikTok and Facebook, plus pop-up events.</p>
+      </div>
+      <div class="service-row">
+        <div>
+          <h3>Online marketing</h3>
+          <span class="tag">Best for a business with a healthy budget</span>
+        </div>
+        <p>Paid ads, Google Ads, influencer partnerships, social media and email marketing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page about" id="about">
+    <h1 class="page-title">About</h1>
+    <p class="lede">I was born and raised in KwaZulu-Natal. Curiosity has always driven me, and it has opened doors to opportunities, growth, ideas and imagination. I prioritise work over everything</p>
+
+    <h2>Skills</h2>
+    <div class="chips">
+      <span class="chip">Video editing</span>
+      <span class="chip">Strategising</span>
+      <span class="chip">Communication</span>
+      <span class="chip">Multi-tasking</span>
+      <span class="chip">Microsoft &amp; Google Workspace</span>
+      <span class="chip">Marketing research</span>
+    </div>
+  </section>
+
+  <section class="page" id="contact">
+    <h1 class="page-title">Get in touch</h1>
+    <p class="lede">YOU NEED A STRONG DIGITAL PRESENCE DO NOT LOOK FURTHER? Lets talk.</p>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:minenhlemhlungu7@gmail.com">minenhlemhlungu7@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Phone</div>
+          <div class="value"><a href="tel:+27614350597">061 435 0597</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-item">
+          <div class="label">LinkedIn</div>
+          <div class="value"><a href="https://www.linkedin.com/in/minenhle-khumalo-ba67b8366/" target="_blank" rel="noopener">Minenhle on LinkedIn</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Location</div>
+          <div class="value">Durban, South Africa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© <span id="year"></span> EVAlast. Built for growth.</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const pages = document.querySelectorAll('.page');
+  function showPage(id) {
+    pages.forEach(p => p.classList.toggle('active', p.id === id));
+    document.querySelectorAll('nav button[data-page]').forEach(b => {
+      if (b.dataset.page === id) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+    history.replaceState(null, '', '#' + id);
+  }
+  document.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => showPage(b.dataset.page)));
+  const initial = (location.hash || '#home').slice(1);
+  if (document.getElementById(initial)) showPage(initial);
+
+  document.getElementById('theme').addEventListener('click', () => {
+    const root = document.documentElement;
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+  });
+</script>
+</body>
+</html>
